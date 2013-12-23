@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Usda::Nutrient::Database::VERSION
   spec.authors       = ["Matt Beedle"]
   spec.email         = ["mattbeedle@googlemail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{A gem to include all the USDA nutrient data quickly into a ruby project}
+  spec.summary       = %q{A gem to include all the USDA nutrient data quickly into a ruby project}
   spec.homepage      = ""
   spec.license       = "MIT"
 
