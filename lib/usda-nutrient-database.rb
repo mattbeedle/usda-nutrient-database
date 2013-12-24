@@ -12,8 +12,10 @@ require 'usda_nutrient_database/import/food_groups'
 require 'usda_nutrient_database/import/foods'
 require 'usda_nutrient_database/import/foods_nutrients'
 require 'usda_nutrient_database/import/nutrients'
+require 'usda_nutrient_database/import/weights'
 require 'usda_nutrient_database/railtie' if defined?(Rails)
 require 'usda_nutrient_database/version'
+require 'usda_nutrient_database/weight'
 
 module UsdaNutrientDatabase
   class << self

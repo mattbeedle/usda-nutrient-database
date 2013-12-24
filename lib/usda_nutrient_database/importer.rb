@@ -13,6 +13,7 @@ module UsdaNutrientDatabase
       food_importer.import
       nutrient_importer.import
       foods_nutrient_importer.import
+      weights_importer.import
     ensure
       downloader.cleanup
     end
@@ -34,6 +35,10 @@ module UsdaNutrientDatabase
 
     def food_group_importer
       UsdaNutrientDatabase::Import::FoodGroups.new("#{directory}/#{version}")
+    end
+
+    def weights_importer
+      UsdaNutrientDatabase::Import::Weights.new("#{directory}/#{version}")
     end
 
     def downloader

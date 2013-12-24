@@ -14,5 +14,6 @@ describe UsdaNutrientDatabase::Importer do
     it { expect(UsdaNutrientDatabase::Food.count).to eql(16) }
     it { expect(UsdaNutrientDatabase::Nutrient.count).to eql(15) }
     it { expect(UsdaNutrientDatabase::FoodsNutrient.count).to eql(12) }
+    it { expect(UsdaNutrientDatabase::Weight.count).to eql(11) }
   end
 end
