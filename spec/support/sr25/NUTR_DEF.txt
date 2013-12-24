@@ -1,0 +1,3 @@
+~203~^~g~^~PROCNT~^~Protein~^~2~^~600~
+~204~^~g~^~FAT~^~Total lipid (fat)~^~2~^~800~
+~205~^~g~^~CHOCDF~^~Carbohydrate, by difference~^~2~^~1100~

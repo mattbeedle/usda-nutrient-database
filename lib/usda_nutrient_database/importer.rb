@@ -1,13 +1,14 @@
 module UsdaNutrientDatabase
   class Importer
-    attr_reader :directory
+    attr_reader :directory, :version
 
-    def initialize(directory = 'tmp/usda')
+    def initialize(directory = 'tmp/usda', version = 'sr25')
       @directory = directory
+      @version = version
     end
 
     def import
-      downloader.download_data
+      downloader.download_and_unzip
       food_group_importer.import
       food_importer.import
       nutrient_importer.import
@@ -35,7 +36,7 @@ module UsdaNutrientDatabase
     end
 
     def downloader
-      UsdaNutrientDatabase::Import::Downloader.new(directory)
+      UsdaNutrientDatabase::Import::Downloader.new(directory, version)
     end
   end
 end

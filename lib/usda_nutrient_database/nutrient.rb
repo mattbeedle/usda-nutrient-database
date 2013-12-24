@@ -1,5 +1,5 @@
 module UsdaNutrientDatabase
-  class Nutrient < ActiveRecord::Migration
+  class Nutrient < ActiveRecord::Base
     self.table_name = 'usda_nutrients'
 
     validates :nutrient_number, presence: true,
