@@ -1,13 +1,13 @@
 sqlite3:
   adapter: sqlite3
-  database: usda_nutrient_database.sqlite3
+  database: usda_nutrient_database_test.sqlite3
 
 mysql:
   adapter: mysql2
   hostname: localhost
   username: root
   password:
-  database: usda_nutrient_database
+  database: usda_nutrient_database_test
   charset: utf8
 
 postgresql:
@@ -15,5 +15,5 @@ postgresql:
   hostname: localhost
   username: postgres
   password:
-  database: usda_nutrient_database
+  database: usda_nutrient_database_test
   encoding: utf8

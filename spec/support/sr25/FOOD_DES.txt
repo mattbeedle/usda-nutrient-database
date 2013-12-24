@@ -1,0 +1,4 @@
+~01001~^~0100~^~Butter, salted~^~BUTTER,WITH SALT~^~~^~~^~Y~^~~^0^~~^6.38^4.27^8.79^3.87
+~01002~^~0100~^~Butter, whipped, with salt~^~BUTTER,WHIPPED,WITH SALT~^~~^~~^~Y~^~~^0^~~^6.38^4.27^8.79^3.87
+~01003~^~0100~^~Butter oil, anhydrous~^~BUTTER OIL,ANHYDROUS~^~~^~~^~Y~^~~^0^~~^6.38^4.27^8.79^3.87
+~02001~^~0200~^~Spices, allspice, ground~^~ALLSPICE,GROUND~^~~^~~^~~^~~^0^~Pimenta dioica~^6.25^3.36^8.37^2.35
