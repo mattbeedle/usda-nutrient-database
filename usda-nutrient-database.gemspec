@@ -10,12 +10,12 @@ Gem::Specification.new do |spec|
   spec.email         = ['mattbeedle@googlemail.com']
   spec.description   = %q{A gem to include all the USDA nutrient data quickly into a ruby project}
   spec.summary       = %q{A gem to include all the USDA nutrient data quickly into a ruby project}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/mattbeedle/usda-nutrient-database'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
+  spec.test_files    = spec.files.grep(%r{^(spec)/})
   spec.require_paths = ['lib']
 
   spec.add_runtime_dependency 'activerecord', '>= 3.0.0'
