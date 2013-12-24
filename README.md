@@ -31,7 +31,7 @@ Import the latest data with the import task:
 ```
 rake usda:import
 ```
-This is going to take a while. 20+ minutes on my 2.66 GHz i7 macbook pro
+This is going to take a while. 60+ minutes on my 2.66 GHz i7 macbook pro
 
 Use the models to query and profit:
 ```
