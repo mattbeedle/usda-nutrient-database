@@ -1,8 +1,11 @@
+# encoding: utf-8
+
 module UsdaNutrientDatabase
   module Import
     class Foods < Base
       def import
-        CSV.open("#{directory}/FOOD_DES.txt", 'r', csv_options) do |csv|
+        UsdaNutrientDatabase.log 'Importing foods'
+        CSV.open("#{directory}/FOOD_DES.txt", 'r:iso-8859-1:utf-8', csv_options) do |csv|
           csv.each do |row|
             UsdaNutrientDatabase::Food.create!(
               nutrient_databank_number: row[0],

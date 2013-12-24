@@ -20,19 +20,20 @@ module UsdaNutrientDatabase
     private
 
     def food_importer
-      UsdaNutrientDatabase::Import::Foods.new(directory)
+      UsdaNutrientDatabase::Import::Foods.new("#{directory}/#{version}")
     end
 
     def nutrient_importer
-      UsdaNutrientDatabase::Import::Nutrients.new(directory)
+      UsdaNutrientDatabase::Import::Nutrients.new("#{directory}/#{version}")
     end
 
     def foods_nutrient_importer
-      UsdaNutrientDatabase::Import::FoodsNutrients.new(directory)
+      UsdaNutrientDatabase::Import::FoodsNutrients.
+        new("#{directory}/#{version}")
     end
 
     def food_group_importer
-      UsdaNutrientDatabase::Import::FoodGroups.new(directory)
+      UsdaNutrientDatabase::Import::FoodGroups.new("#{directory}/#{version}")
     end
 
     def downloader

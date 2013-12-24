@@ -17,7 +17,6 @@ require 'webmock/rspec'
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
-  config.treat_symbols_as_metadata_keys_with_true_values = true
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
@@ -26,6 +25,8 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = 'random'
+
+  config.fail_fast = true
 
   db_name = ENV['DB'] || 'postgresql'
   database_yml = File.expand_path('../database.yml', __FILE__)

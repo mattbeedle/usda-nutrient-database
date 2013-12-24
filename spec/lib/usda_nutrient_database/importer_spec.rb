@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsdaNutrientDatabase::Importer do
-  let(:importer) { described_class.new }
+  let(:importer) { UsdaNutrientDatabase::Importer.new }
 
   describe '#import' do
     before do
@@ -9,7 +9,10 @@ describe UsdaNutrientDatabase::Importer do
         to_return(body: File.read('spec/support/sr25.zip'))
       importer.import
     end
-  end
 
-  it { expect(UsdaNutrientDatabase::FoodGroup.count).to eql(10) }
+    it { expect(UsdaNutrientDatabase::FoodGroup.count).to eql(25) }
+    it { expect(UsdaNutrientDatabase::Food.count).to eql(16) }
+    it { expect(UsdaNutrientDatabase::Nutrient.count).to eql(15) }
+    it { expect(UsdaNutrientDatabase::FoodsNutrient.count).to eql(12) }
+  end
 end

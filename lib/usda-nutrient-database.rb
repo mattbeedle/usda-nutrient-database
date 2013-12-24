@@ -1,4 +1,5 @@
 require 'faraday'
+require 'usda_nutrient_database/configuration'
 require 'usda_nutrient_database/food_group'
 require 'usda_nutrient_database/food'
 require 'usda_nutrient_database/nutrient'
@@ -14,4 +15,21 @@ require 'usda_nutrient_database/railtie' if defined?(Rails)
 require 'usda_nutrient_database/version'
 
 module UsdaNutrientDatabase
+  class << self
+    attr_writer :configuration
+
+    def log(message, level = :debug)
+      configuration.logger.send(level, message)
+    end
+
+    def configuration
+      @configuration ||= UsdaNutrientDatabase::Configuration.new
+    end
+  end
+
+  def self.configure
+    self.configuration = UsdaNutrientDatabase::Configuration.new
+    yield(self.configuration)
+    self.configuration
+  end
 end

@@ -24,7 +24,7 @@ describe UsdaNutrientDatabase::Import::Downloader do
 
     it 'should download and extract all files' do
       filenames.each do |filename|
-        expect(File.exist?("#{extraction_path}/#{filename}")).to be_true
+        expect(File.exist?("#{extraction_path}/#{filename}")).to eql(true)
       end
     end
   end
@@ -39,7 +39,7 @@ describe UsdaNutrientDatabase::Import::Downloader do
 
     it 'should remove all of the extracted files' do
       filenames.each do |filename|
-        expect(File.exist?("#{extraction_path}/#{filename}")).to be_false
+        expect(File.exist?("#{extraction_path}/#{filename}")).to eql(false)
       end
     end
   end

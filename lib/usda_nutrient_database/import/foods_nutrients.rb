@@ -2,7 +2,10 @@ module UsdaNutrientDatabase
   module Import
     class FoodsNutrients < Base
       def import
-        CSV.open("#{directory}/NUT_DATA.txt", 'r', csv_options) do |csv|
+        UsdaNutrientDatabase.log 'Importing foods_nutrients'
+        CSV.open(
+          "#{directory}/NUT_DATA.txt", 'r:iso-8859-1:utf-8', csv_options
+        ) do |csv|
           csv.each { |row| extract_row(row) }
         end
       end

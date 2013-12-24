@@ -12,6 +12,7 @@ module UsdaNutrientDatabase
       end
 
       def cleanup
+        UsdaNutrientDatabase.log 'Cleaning up data'
         FileUtils.rm_rf(directory)
       end
 
@@ -27,13 +28,17 @@ module UsdaNutrientDatabase
       end
 
       def download
-        FileUtils.mkdir_p("#{directory}/#{version}") unless File.directory?(directory)
+        UsdaNutrientDatabase.log "Downloading USDA data version: #{version}"
+        unless File.directory?(directory)
+          FileUtils.mkdir_p("#{directory}/#{version}")
+        end
         File.open("#{directory}/#{version}.zip", 'w+b') do |file|
           file.write connection.get(path).body
         end
       end
 
       def unzip
+        UsdaNutrientDatabase.log 'Unzipping data'
         Zip::File.open("#{directory}/#{version}.zip") do |zipfile|
           zipfile.each do |file|
             unless File.exist?("#{directory}/#{version}/#{file.name}")
