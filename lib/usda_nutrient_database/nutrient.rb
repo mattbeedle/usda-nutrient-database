@@ -1,6 +1,7 @@
 module UsdaNutrientDatabase
   class Nutrient < ActiveRecord::Base
     self.table_name = 'usda_nutrients'
+    self.primary_key = 'nutrient_number'
 
     validates :nutrient_number, presence: true,
       uniqueness: { allow_blank: true }

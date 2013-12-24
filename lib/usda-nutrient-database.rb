@@ -1,5 +1,6 @@
 require 'faraday'
 require 'usda_nutrient_database/configuration'
+require 'usda_nutrient_database/engine' if defined?(Rails)
 require 'usda_nutrient_database/food_group'
 require 'usda_nutrient_database/food'
 require 'usda_nutrient_database/nutrient'

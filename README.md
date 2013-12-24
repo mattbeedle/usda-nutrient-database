@@ -1,6 +1,10 @@
-# Usda::Nutrient::Database
+# USDA Nutrient Database
 
-TODO: Write a gem description
+The USDA nutrition database is a great source of nutrition information. However,
+the data formatting options (plain text ASCII files or MS-Access) leave a little
+to be desired.
+
+This is a simple gem to import the database into your ruby application.
 
 ## Installation
 
@@ -16,9 +20,26 @@ Or install it yourself as:
 
     $ gem install usda-nutrient-database
 
+If you're using rails then copy the migrations across:
+```
+rake usda_nutrient_database_engine:install:migrations
+```
+
 ## Usage
 
-TODO: Write usage instructions here
+Import the latest data with the import task:
+```
+rake usda:import
+```
+This is going to take a while. 20+ minutes on my 2.66 GHz i7 macbook pro
+
+Use the models to query and profit:
+```
+UsdaNutrientDatabase::FoodGroup
+UsdaNutrientDatabase::Food
+UsedNutrientDatabase::Nutrient
+UsdaNutrientDatabase::FoodsNutrient
+```
 
 ## Contributing
 

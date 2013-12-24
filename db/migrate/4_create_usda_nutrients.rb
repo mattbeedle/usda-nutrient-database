@@ -1,6 +1,6 @@
 class CreateUsdaNutrients < ActiveRecord::Migration
   def change
-    create_table :nutrients, id: :nutrient_number do |t|
+    create_table :usda_nutrients, id: false, primary_key: :nutrient_number do |t|
       t.string  :nutrient_number, null: false, index: true
       t.string  :units, null: false
       t.string  :tagname
