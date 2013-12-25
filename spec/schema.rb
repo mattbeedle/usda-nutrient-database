@@ -67,4 +67,9 @@ ActiveRecord::Schema.define version: 0 do
     t.string :nutrient_number, index: true
     t.string :footnote_text, null: false
   end
+
+  create_table :usda_source_codes, force: true do |t|
+    t.string :code, null: false, index: true
+    t.string :description, null: false
+  end
 end
