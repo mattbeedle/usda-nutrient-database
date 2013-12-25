@@ -6,7 +6,7 @@ namespace :usda do
 
   [
     'Weights', 'Footnotes', 'FoodGroups', 'Foods', 'FoodsNutrients',
-    'Nutrients'
+    'Nutrients', 'SourceCodes'
   ].each do |importer_name|
     desc "Import the USDA #{importer_name} table"
     task import_weights: :environment do

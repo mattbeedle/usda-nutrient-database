@@ -19,7 +19,7 @@ module UsdaNutrientDatabase
     def importer_names
       [
         'Foods', 'Nutrients', 'FoodsNutrients', 'FoodGroups', 'Weights',
-        'Footnotes'
+        'Footnotes', 'SourceCodes'
       ]
     end
 
