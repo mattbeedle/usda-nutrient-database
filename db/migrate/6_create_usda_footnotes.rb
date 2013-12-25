@@ -1,4 +1,4 @@
-class CreateFootnotes < ActiveRecord::Migration
+class CreateUsdaFootnotes < ActiveRecord::Migration
   def change
     create_table :usda_footnotes do |t|
       t.string :nutrient_databank_number, null: false, index: true

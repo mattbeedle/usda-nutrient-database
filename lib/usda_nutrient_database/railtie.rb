@@ -3,7 +3,7 @@ module UsdaNutrientDatabase
     railtie_name :usda_nutrient_database
 
     rake_tasks do
-      load 'tasks/usda_nutrient_database.rake'
+      load 'usda_nutrient_database/tasks/usda_nutrient_database.rake'
     end
   end
 end
