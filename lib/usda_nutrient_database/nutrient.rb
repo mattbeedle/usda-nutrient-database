@@ -14,5 +14,7 @@ module UsdaNutrientDatabase
     has_many :foods_nutrients,
       class_name: 'UsdaNutrientDatabase::FoodsNutrient',
       dependent: :destroy
+
+    has_many :footnotes, class_name: 'UsdaNutrientDatabase::Footnote'
   end
 end

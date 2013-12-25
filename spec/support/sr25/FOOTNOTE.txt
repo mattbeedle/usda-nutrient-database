@@ -1,0 +1,4 @@
+~02009~^~01~^~D~^~~^~Mix of chili pepper, other spices and salt~
+~02030~^~01~^~N~^~204~^~Total proximates do not equal 100% because piperine was subtracted from lipid value.~
+~02032~^~01~^~N~^~204~^~Total proximates do not equal 100% because piperine was subtracted from lipid value.~
+~02033~^~01~^~D~^~~^~Other phytosterols = 38.4 mg/100g; these include delta 5-avenasterol (17.7), campestanol (2.6), and other minor phytosterols (18.1 mg).~
