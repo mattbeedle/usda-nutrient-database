@@ -24,7 +24,9 @@ module UsdaNutrientDatabase
     attr_writer :configuration
 
     def log(message, level = :debug)
-      configuration.logger.send(level, message)
+      if configuration.perform_logging?
+        configuration.logger.send(level, message)
+      end
     end
 
     def configuration

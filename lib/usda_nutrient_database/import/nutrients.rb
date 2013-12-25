@@ -1,19 +1,34 @@
 module UsdaNutrientDatabase
   module Import
     class Nutrients < Base
-      def import
-        UsdaNutrientDatabase.log 'Importing nutrients'
-        CSV.open(
-          "#{directory}/NUTR_DEF.txt", 'r:iso-8859-1:utf-8', csv_options
-        ) do |csv|
-          csv.each do |row|
-            UsdaNutrientDatabase::Nutrient.create!(
-              nutrient_number: row[0], units: row[1], tagname: row[2],
-              nutrient_description: row[3], number_decimal_places: row[4],
-              sort_record_order: row[5]
-            )
+
+      private
+
+      def extract_row(row)
+        build_nutrient(row).save
+      end
+
+      def build_nutrient(row)
+        UsdaNutrientDatabase::Nutrient.new.tap do |nutrient|
+          columns.each_with_index do |column, index|
+            nutrient.send("#{column}=", row[index])
           end
         end
+      end
+
+      def columns
+        @columns ||= [
+          :nutrient_number, :units, :tagname, :nutrient_description,
+          :number_decimal_places, :sort_record_order
+        ]
+      end
+
+      def filename
+        'NUTR_DEF.txt'
+      end
+
+      def log_import_started
+        UsdaNutrientDatabase.log 'Importing nutrients'
       end
     end
   end

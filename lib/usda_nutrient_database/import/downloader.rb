@@ -49,10 +49,7 @@ module UsdaNutrientDatabase
       end
 
       def connection
-        @connection ||= Faraday.new(url: 'http://www.ars.usda.gov') do |faraday|
-          faraday.response :logger
-          faraday.adapter Faraday.default_adapter
-        end
+        @connection ||= Faraday.new(url: 'http://www.ars.usda.gov')
       end
     end
   end

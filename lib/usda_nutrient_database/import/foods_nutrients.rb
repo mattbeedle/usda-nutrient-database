@@ -1,14 +1,6 @@
 module UsdaNutrientDatabase
   module Import
     class FoodsNutrients < Base
-      def import
-        UsdaNutrientDatabase.log 'Importing foods_nutrients'
-        CSV.open(
-          "#{directory}/NUT_DATA.txt", 'r:iso-8859-1:utf-8', csv_options
-        ) do |csv|
-          csv.each { |row| extract_row(row) }
-        end
-      end
 
       private
 
@@ -23,11 +15,23 @@ module UsdaNutrientDatabase
       end
 
       def extract_row(row)
-        attrs = {}
-        columns.each_with_index do |column, index|
-          attrs.merge!(column => row[index])
+        build_foods_nutrient(row).save
+      end
+
+      def build_foods_nutrient(row)
+        UsdaNutrientDatabase::FoodsNutrient.new.tap do |foods_nutrient|
+          columns.each_with_index do |column, index|
+            foods_nutrient.send("#{column}=", row[index])
+          end
         end
-        UsdaNutrientDatabase::FoodsNutrient.create!(attrs)
+      end
+
+      def filename
+        'NUT_DATA.txt'
+      end
+
+      def log_import_started
+        UsdaNutrientDatabase.log 'Importing foods_nutrients'
       end
     end
   end

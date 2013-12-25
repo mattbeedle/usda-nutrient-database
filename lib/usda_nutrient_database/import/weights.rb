@@ -1,19 +1,35 @@
 module UsdaNutrientDatabase
   module Import
     class Weights < Base
-      def import
-        CSV.open(
-          "#{directory}/WEIGHT.txt", 'r:iso-8859-1:utf-8', csv_options
-        ) do |csv|
-          csv.each do |row|
-            UsdaNutrientDatabase::Weight.create!(
-              nutrient_databank_number: row[0],
-              sequence_number: row[1], amount: row[2],
-              measurement_description: row[3], gram_weight: row[4],
-              num_data_points: row[5], standard_deviation: row[6]
-            )
+
+      private
+
+      def extract_row(row)
+        build_weight(row).save
+      end
+
+      def build_weight(row)
+        UsdaNutrientDatabase::Weight.new.tap do |weight|
+          columns.each_with_index do |column, index|
+            weight.send("#{column}=", row[index])
           end
         end
+      end
+
+      def filename
+        'WEIGHT.txt'
+      end
+
+      def columns
+        @columns ||= [
+          :nutrient_databank_number, :sequence_number, :amount,
+          :measurement_description, :gram_weight, :num_data_points,
+          :standard_deviation
+        ]
+      end
+
+      def log_import_started
+        UsdaNutrientDatabase.log 'Importing weights'
       end
     end
   end
