@@ -4,14 +4,14 @@ namespace :usda do
     UsdaNutrientDatabase::Importer.new('tmp/usda', 'sr25').import
   end
 
-  desc 'Import the USDA weights table'
-  task import_weights: :environment do
-    download_and_import('Weights')
-  end
-
-  desc 'Import USDA foot notes data'
-  task import_footnotes: :environment do
-    download_and_import('Footnotes')
+  [
+    'Weights', 'Footnotes', 'FoodGroups', 'Foods', 'FoodsNutrients',
+    'Nutrients'
+  ].each do |importer_name|
+    desc "Import the USDA #{importer_name} table"
+    task import_weights: :environment do
+      download_and_import(importer_name)
+    end
   end
 
   def download_and_import(importer_name)
