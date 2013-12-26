@@ -9,7 +9,7 @@ namespace :usda do
     'Nutrients', 'SourceCodes'
   ].each do |importer_name|
     desc "Import the USDA #{importer_name} table"
-    task import_weights: :environment do
+    task "import_#{importer_name.downcase}" => :environment do
       download_and_import(importer_name)
     end
   end
