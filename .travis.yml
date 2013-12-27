@@ -9,4 +9,3 @@ before_install:
   - gem install rake
 script:
   - bundle exec rspec spec/
-bundler_args: --binstubs=./bundler_stubs
