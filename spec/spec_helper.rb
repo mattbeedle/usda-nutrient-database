@@ -12,6 +12,7 @@ require 'database_cleaner'
 require 'usda-nutrient-database'
 require 'shoulda-matchers'
 require 'webmock/rspec'
+require_relative 'support/database'
 
 UsdaNutrientDatabase.configure do |config|
   config.perform_logging = false
@@ -27,6 +28,8 @@ RSpec.configure do |config|
   config.run_all_when_everything_filtered = true
   config.filter_run :focus
 
+  include Database
+
   # Run specs in random order to surface order dependencies. If you find an
   # order dependency and want to debug it, you can fix the order by providing
   # the seed, which is printed after each run.
@@ -39,6 +42,8 @@ RSpec.configure do |config|
   database_yml = File.expand_path('../database.yml', __FILE__)
   ActiveRecord::Base.configurations = YAML.load_file(database_yml)
   db_config = ActiveRecord::Base.configurations[db_name]
+
+  setup_database(db_name, db_config)
 
   begin
     ActiveRecord::Base.establish_connection(db_name)
