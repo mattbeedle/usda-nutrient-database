@@ -1,3 +1,12 @@
+[![Code
+Climate](https://codeclimate.com/github/mattbeedle/usda-nutrient-database.png)](https://codeclimate.com/github/mattbeedle/usda-nutrient-database)
+
+[![Dependency
+Status](https://gemnasium.com/mattbeedle/usda-nutrient-database.png)](https://gemnasium.com/mattbeedle/usda-nutrient-database)
+
+[![Gem
+Version](https://badge.fury.io/rb/usda-nutrient-database.png)](http://badge.fury.io/rb/usda-nutrient-database)
+
 # USDA Nutrient Database
 
 The USDA nutrition database is a great source of nutrition information. However,
