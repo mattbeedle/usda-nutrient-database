@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/mattbeedle/usda-nutrient-database.png?label=ready)](https://waffle.io/mattbeedle/usda-nutrient-database)  
 [![Code
 Climate](https://codeclimate.com/github/mattbeedle/usda-nutrient-database.png)](https://codeclimate.com/github/mattbeedle/usda-nutrient-database)
 
