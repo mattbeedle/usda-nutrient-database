@@ -4,6 +4,9 @@ require 'logger'
 
 Bundler.setup
 
+require 'coveralls'
+Coveralls.wear!
+
 require 'active_record'
 require 'database_cleaner'
 require 'usda-nutrient-database'
