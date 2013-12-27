@@ -1,6 +1,12 @@
 [![Code
 Climate](https://codeclimate.com/github/mattbeedle/usda-nutrient-database.png)](https://codeclimate.com/github/mattbeedle/usda-nutrient-database)
 
+[![Build
+Status](https://travis-ci.org/mattbeedle/usda-nutrient-database.png?branch=master)](https://travis-ci.org/mattbeedle/usda-nutrient-database)
+
+[![Coverage
+Status](https://coveralls.io/repos/mattbeedle/usda-nutrient-database/badge.png)](https://coveralls.io/r/mattbeedle/usda-nutrient-database)
+
 [![Dependency
 Status](https://gemnasium.com/mattbeedle/usda-nutrient-database.png)](https://gemnasium.com/mattbeedle/usda-nutrient-database)
 
