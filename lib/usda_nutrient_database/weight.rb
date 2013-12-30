@@ -9,5 +9,8 @@ module UsdaNutrientDatabase
     validates :amount, presence: true
     validates :measurement_description, presence: true
     validates :gram_weight, presence: true
+
+    belongs_to :food, class_name: 'UsdaNutrientDatabase::Food',
+      foreign_key: :nutrient_databank_number
   end
 end

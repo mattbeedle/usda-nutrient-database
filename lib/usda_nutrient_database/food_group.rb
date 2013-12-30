@@ -7,6 +7,6 @@ module UsdaNutrientDatabase
     validates :description, presence: true
 
     has_many :foods, class_name: 'UsdaNutrientDatabase::Food',
-      dependent: :destroy
+      dependent: :destroy, foreign_key: :food_group_code
   end
 end
