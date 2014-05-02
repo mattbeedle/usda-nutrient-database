@@ -1,7 +1,7 @@
 namespace :usda do
   desc 'Import the latest USDA nutrition data'
   task import: :environment do
-    UsdaNutrientDatabase::Importer.new('tmp/usda', 'sr25').import
+    UsdaNutrientDatabase::Importer.new('tmp/usda', 'sr26').import
   end
 
   [
@@ -15,7 +15,7 @@ namespace :usda do
   end
 
   def download_and_import(importer_name)
-    UsdaNutrientDatabase::Import::Downloader.new('tmp/usda', 'sr25').
+    UsdaNutrientDatabase::Import::Downloader.new('tmp/usda', 'sr26').
       tap do |downloader|
       downloader.download_and_unzip
       "UsdaNutrientDatabase::Import::#{importer_name}".constantize.
