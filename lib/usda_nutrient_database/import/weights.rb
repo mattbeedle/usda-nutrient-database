@@ -4,16 +4,11 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_weight(row).save
-      end
-
-      def build_weight(row)
-        UsdaNutrientDatabase::Weight.new.tap do |weight|
-          columns.each_with_index do |column, index|
-            weight.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::Weight.find_or_initialize_by(
+          nutrient_databank_number: row[0],
+          sequence_number: row[1]
+        )
       end
 
       def filename

@@ -4,16 +4,9 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_nutrient(row).save
-      end
-
-      def build_nutrient(row)
-        UsdaNutrientDatabase::Nutrient.new.tap do |nutrient|
-          columns.each_with_index do |column, index|
-            nutrient.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::Nutrient.
+          find_or_initialize_by(nutrient_number: row[0])
       end
 
       def columns

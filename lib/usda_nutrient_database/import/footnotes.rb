@@ -4,16 +4,11 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_footnote(row).save
-      end
-
-      def build_footnote(row)
-        UsdaNutrientDatabase::Footnote.new.tap do |footnote|
-          columns.each_with_index do |column, index|
-            footnote.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::Footnote.find_or_initialize_by(
+          nutrient_databank_number: row[0], footnote_number: row[1],
+          nutrient_number: row[2]
+        )
       end
 
       def filename

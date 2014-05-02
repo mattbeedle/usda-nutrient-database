@@ -4,16 +4,8 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_food_group(row).save
-      end
-
-      def build_food_group(row)
-        UsdaNutrientDatabase::FoodGroup.new.tap do |food_group|
-          columns.each_with_index do |column, index|
-            food_group.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::FoodGroup.find_or_initialize_by(code: row[0])
       end
 
       def columns

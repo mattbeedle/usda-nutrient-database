@@ -4,16 +4,8 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_source_code(row).save
-      end
-
-      def build_source_code(row)
-        UsdaNutrientDatabase::SourceCode.new.tap do |source_code|
-          columns.each_with_index do |column, index|
-            source_code.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::SourceCode.find_or_initialize_by(code: row[0])
       end
 
       def columns

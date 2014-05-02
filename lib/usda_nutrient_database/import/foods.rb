@@ -6,16 +6,9 @@ module UsdaNutrientDatabase
 
       private
 
-      def extract_row(row)
-        build_food(row).save
-      end
-
-      def build_food(row)
-        UsdaNutrientDatabase::Food.new.tap do |food|
-          columns.each_with_index do |column, index|
-            food.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::Food.
+          find_or_initialize_by(nutrient_databank_number: row[0])
       end
 
       def log_import_started

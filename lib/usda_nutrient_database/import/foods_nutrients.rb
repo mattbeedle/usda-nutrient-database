@@ -14,16 +14,10 @@ module UsdaNutrientDatabase
         ]
       end
 
-      def extract_row(row)
-        build_foods_nutrient(row).save
-      end
-
-      def build_foods_nutrient(row)
-        UsdaNutrientDatabase::FoodsNutrient.new.tap do |foods_nutrient|
-          columns.each_with_index do |column, index|
-            foods_nutrient.send("#{column}=", row[index])
-          end
-        end
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::FoodsNutrient.find_or_initialize_by(
+          nutrient_databank_number: row[0], nutrient_number: row[1]
+        )
       end
 
       def filename
