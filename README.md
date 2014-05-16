@@ -9,6 +9,8 @@ Status](https://coveralls.io/repos/mattbeedle/usda-nutrient-database/badge.png)]
 Status](https://gemnasium.com/mattbeedle/usda-nutrient-database.png)](https://gemnasium.com/mattbeedle/usda-nutrient-database)
 [![Gem
 Version](https://badge.fury.io/rb/usda-nutrient-database.png)](http://badge.fury.io/rb/usda-nutrient-database)
+[![Gitter
+chat](https://badges.gitter.im/mattbeedle/usda-nutrient-database.png)](https://gitter.im/mattbeedle/usda-nutrient-database)
 
 # USDA Nutrient Database
 
