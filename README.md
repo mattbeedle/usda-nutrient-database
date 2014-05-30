@@ -20,6 +20,14 @@ to be desired.
 
 This is a simple gem to import the database into your ruby application.
 
+## Using the USDA Nutrient Database REST API instead
+
+Even after importing this data, keeping it up to date and adding/maintaining
+additional logic such as full text search, weight conversion, etc is a pain. As
+an alternative I have put together a small RESTful web service to do this for you.
+You can find the docs at
+[http://docs.usdanutrientservice.apiary.io/](http://docs.usdanutrientservice.apiary.io/)
+
 ## Installation
 
 Add this line to your application's Gemfile:
