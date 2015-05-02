@@ -6,6 +6,11 @@ module UsdaNutrientDatabase
 
       private
 
+      def apply_typecasts(row)
+        row[6] = row[6].present?
+        row
+      end
+
       def find_or_initialize(row)
         UsdaNutrientDatabase::Food.
           find_or_initialize_by(nutrient_databank_number: row[0])
