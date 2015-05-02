@@ -23,7 +23,7 @@ module UsdaNutrientDatabase
       def path
         [
           'SP2UserFiles', 'Place', '12354500', 'Data', version.upcase,
-          'dnload', "#{version}.zip"
+          'dnload', "#{version_file}.zip"
         ].join('/')
       end
 
@@ -33,7 +33,7 @@ module UsdaNutrientDatabase
           FileUtils.mkdir_p("#{directory}/#{version}")
         end
         File.open("#{directory}/#{version}.zip", 'w+b') do |file|
-          file.write connection.get(path).body
+          file.write connection.get(final_path).body
         end
       end
 
@@ -49,7 +49,26 @@ module UsdaNutrientDatabase
       end
 
       def connection
-        @connection ||= Faraday.new(url: 'http://www.ars.usda.gov')
+        @connection ||= Faraday.new(url: 'https://www.ars.usda.gov')
+      end
+
+      def final_path
+        look_ahead = connection.head(path)
+        if look_ahead.status == 302
+          raise 'No location' unless look_ahead.headers['location'] 
+          URI.parse(look_ahead.headers['location']).path
+        else
+          path
+        end
+      end
+
+      def version_file
+        case @version
+        when 'sr27'
+          'sr27asc'
+        else
+          @version
+        end
       end
     end
   end

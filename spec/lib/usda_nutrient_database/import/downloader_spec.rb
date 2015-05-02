@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsdaNutrientDatabase::Import::Downloader do
-  let(:downloader) { described_class.new('tmp/usda') }
+  let(:downloader) { described_class.new(directory, version) }
   let(:extraction_path) { "#{directory}/#{version}" }
   let(:directory) { 'tmp/usda' }
   let(:version) { 'sr25' }
@@ -13,10 +13,23 @@ describe UsdaNutrientDatabase::Import::Downloader do
     ]
   end
 
+  describe '#version_file' do
+    subject { downloader.version_file }
+    context 'with version sr25' do
+      it { is_expected.to eq 'sr25' }
+    end
+    context 'with version sr27' do
+      let(:version) { 'sr27' }
+      it { is_expected.to eq 'sr27asc' }
+    end
+  end
+
   describe '#download_and_unzip' do
     before do
       stub_request(:get, /.*/).
         to_return(body: File.read('spec/support/sr25.zip'))
+      expect(downloader).to receive(:final_path)
+        .and_return('/sr25.zip')
       downloader.download_and_unzip
     end
 
@@ -33,6 +46,8 @@ describe UsdaNutrientDatabase::Import::Downloader do
     before do
       stub_request(:get, /.*/).
         to_return(body: File.read('spec/support/sr25.zip'))
+      expect(downloader).to receive(:final_path)
+        .and_return('/sr25.zip')
       downloader.download_and_unzip
       downloader.cleanup
     end
