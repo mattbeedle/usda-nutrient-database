@@ -46,7 +46,7 @@ RSpec.configure do |config|
   setup_database(db_name, db_config)
 
   begin
-    ActiveRecord::Base.establish_connection(db_name)
+    ActiveRecord::Base.establish_connection(db_name.to_sym)
     ActiveRecord::Base.connection
   rescue PG::ConnectionBad
     ActiveRecord::Base.establish_connection db_config.merge('database' => nil)
