@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsdaNutrientDatabase::Import::Foods do
-  let(:importer) { described_class.new('spec/support/sr25') }
+  let(:importer) { described_class.new('spec/support/sr27') }
 
   describe '#import' do
     before { importer.import }
@@ -10,7 +10,7 @@ describe UsdaNutrientDatabase::Import::Foods do
 
     it do
       expect(UsdaNutrientDatabase::Food.where(food_group_code: '0100').count).
-        to eql(3)
+        to eql(4)
     end
   end
 end

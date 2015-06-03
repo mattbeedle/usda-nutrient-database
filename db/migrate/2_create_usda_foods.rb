@@ -10,6 +10,7 @@ class CreateUsdaFoods < ActiveRecord::Migration
       t.boolean :survey
       t.string  :refuse_description
       t.integer :percentage_refuse
+      t.string  :scientific_name
       t.float   :nitrogen_factor
       t.float   :protein_factor
       t.float   :fat_factor
