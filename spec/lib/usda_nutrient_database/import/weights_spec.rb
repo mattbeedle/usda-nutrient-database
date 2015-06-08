@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UsdaNutrientDatabase::Import::Weights do
-  let(:importer) { described_class.new('spec/support/sr25') }
+  let(:importer) { described_class.new('spec/support/sr27') }
 
   describe '#import' do
     before { importer.import }

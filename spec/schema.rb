@@ -14,6 +14,7 @@ ActiveRecord::Schema.define version: 0 do
     t.boolean :survey
     t.string  :refuse_description
     t.integer :percentage_refuse
+    t.string  :scientific_name
     t.float   :nitrogen_factor
     t.float   :protein_factor
     t.float   :fat_factor
