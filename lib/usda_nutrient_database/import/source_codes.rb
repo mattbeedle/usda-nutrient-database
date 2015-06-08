@@ -4,6 +4,10 @@ module UsdaNutrientDatabase
 
       private
 
+      def klass
+        UsdaNutrientDatabase::SourceCode
+      end
+
       def find_or_initialize(row)
         UsdaNutrientDatabase::SourceCode.find_or_initialize_by(code: row[0])
       end

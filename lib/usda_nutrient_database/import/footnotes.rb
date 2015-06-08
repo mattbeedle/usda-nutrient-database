@@ -4,6 +4,10 @@ module UsdaNutrientDatabase
 
       private
 
+      def klass
+        UsdaNutrientDatabase::Footnote
+      end
+
       def find_or_initialize(row)
         UsdaNutrientDatabase::Footnote.find_or_initialize_by(
           nutrient_databank_number: row[0], footnote_number: row[1],
