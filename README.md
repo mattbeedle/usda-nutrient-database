@@ -86,6 +86,12 @@ Any feature requests/ideas can also go in the issues list.
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
 
+## Contributors
+
+Many thanks to the following contributers:
+
+- [@benfalk](https://github.com/benfalk)
+
 ## Versioning
 
 This gem follows [Semantic Versioning](http://semver.org)

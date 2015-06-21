@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.2.0
+
+- Upgrade to version SR27 USDA dataset.
+  [#5](https://github.com/mattbeedle/usda-nutrient-database/pull/5)
+- Require ActiveRecord so the gem can work outside of Rails.
+  [#5](https://github.com/mattbeedle/usda-nutrient-database/pull/5)
+
 ## 1.0.0
 
 - Update README
