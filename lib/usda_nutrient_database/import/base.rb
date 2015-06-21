@@ -19,7 +19,7 @@ module UsdaNutrientDatabase
       attr_reader :directory
 
       def extract_row(row)
-        build_object(row).save
+        build_object(apply_typecasts(row)).save
       end
 
       def build_object(row)
@@ -36,6 +36,10 @@ module UsdaNutrientDatabase
 
       def find_or_initialize(row)
         raise NotImplementedError
+      end
+
+      def apply_typecasts(row)
+        row
       end
 
       def file_location
