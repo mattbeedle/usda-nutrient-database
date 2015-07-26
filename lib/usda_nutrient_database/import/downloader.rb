@@ -6,7 +6,7 @@ module UsdaNutrientDatabase
 
       attr_reader :directory, :version
 
-      def initialize(directory = 'tmp/usda', version = 'sr25')
+      def initialize(directory = 'tmp/usda', version = 'sr27')
         @directory = directory
         @version = version
       end
@@ -55,7 +55,7 @@ module UsdaNutrientDatabase
       def final_path
         look_ahead = connection.head(path)
         if look_ahead.status == 302
-          raise 'No location' unless look_ahead.headers['location'] 
+          raise 'No location' unless look_ahead.headers['location']
           URI.parse(look_ahead.headers['location']).path
         else
           path
