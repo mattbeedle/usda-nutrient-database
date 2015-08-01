@@ -21,8 +21,9 @@ module UsdaNutrientDatabase
       foreign_key: :nutrient_number
 
     scope :by_nutrient_databank_number, ->(nutrient_databank_number) {
-      joins(:foods)
-        .where(foods: { nutrient_databank_number: nutrient_databank_number })
+      joins(:foods).where(
+        usda_foods: { nutrient_databank_number: nutrient_databank_number }
+      )
     }
   end
 end
