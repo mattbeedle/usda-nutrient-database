@@ -21,5 +21,10 @@ module UsdaNutrientDatabase
 
     belongs_to :food_group, class_name: 'UsdaNutrientDatabase::FoodGroup',
       foreign_key: :food_group_code
+
+    scope :by_nutrient_number, ->(nutrient_number) {
+      joins(:nutrients)
+        .where(nutrients: { nutrient_number: nutrient_number })
+    }
   end
 end

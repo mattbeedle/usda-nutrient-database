@@ -12,5 +12,9 @@ module UsdaNutrientDatabase
       foreign_key: :nutrient_databank_number
     belongs_to :nutrient, class_name: 'UsdaNutrientDatabase::Nutrient',
       foreign_key: :nutrient_number
+
+    scope :by_nutrient_number, ->(nutrient_number) {
+      where(nutrient_number: nutrient_number)
+    }
   end
 end
