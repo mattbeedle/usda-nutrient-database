@@ -26,5 +26,8 @@ module UsdaNutrientDatabase
       joins(:nutrients)
         .where(nutrients: { nutrient_number: nutrient_number })
     }
+    scope :by_food_group_code, ->(food_group_code) {
+      where(food_group_code: food_group_code)
+    }
   end
 end
