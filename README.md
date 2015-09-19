@@ -64,7 +64,7 @@ Use the models to query and profit:
 ```
 UsdaNutrientDatabase::FoodGroup
 UsdaNutrientDatabase::Food
-UsedNutrientDatabase::Nutrient
+UsdaNutrientDatabase::Nutrient
 UsdaNutrientDatabase::FoodsNutrient
 UsdaNutrientDatabase::Weight
 UsdaNutrientDatabase::SourceCode
