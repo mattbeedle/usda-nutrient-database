@@ -15,7 +15,7 @@ namespace :usda do
   end
 
   def download_and_import(importer_name)
-    UsdaNutrientDatabase::Import::Downloader.new('tmp/usda', 'sr27 ').
+    UsdaNutrientDatabase::Import::Downloader.new('tmp/usda', 'sr27').
       tap do |downloader|
       downloader.download_and_unzip
       "UsdaNutrientDatabase::Import::#{importer_name}".constantize.
