@@ -4,17 +4,13 @@ module UsdaNutrientDatabase
 
       private
 
-      def klass
-        UsdaNutrientDatabase::FoodsNutrient
-      end
-
       def columns
         [
           :nutrient_databank_number, :nutrient_number, :nutrient_value,
           :num_data_points, :standard_error, :src_code, :derivation_code,
-          :ref_nutrient_databank_number, :add_nutrient_mark_text, :num_studies, :min,
+          :ref_nutrient_databank_number, :add_nutrient_mark, :num_studies, :min,
           :max, :degrees_of_freedom, :lower_error_bound, :upper_error_bound,
-          :statistical_comments, :add_mod_date, :confidence_code
+          :statistical_comments, :add_mod_date
         ]
       end
 

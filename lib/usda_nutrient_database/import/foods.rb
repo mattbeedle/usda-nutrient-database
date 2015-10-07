@@ -6,10 +6,6 @@ module UsdaNutrientDatabase
 
       private
 
-      def klass
-        UsdaNutrientDatabase::Food
-      end
-
       def find_or_initialize(row)
         UsdaNutrientDatabase::Food.
           find_or_initialize_by(nutrient_databank_number: row[0])
@@ -26,7 +22,7 @@ module UsdaNutrientDatabase
       def columns
         [
           :nutrient_databank_number, :food_group_code, :long_description,
-          :short_description, :common_names, :manufacturer_name, :survey_text,
+          :short_description, :common_names, :manufacturer_name, :survey,
           :refuse_description, :percentage_refuse, :scientific_name,
           :nitrogen_factor, :protein_factor, :fat_factor,
           :carbohydrate_factor

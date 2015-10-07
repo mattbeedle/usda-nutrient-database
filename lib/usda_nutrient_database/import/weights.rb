@@ -4,10 +4,6 @@ module UsdaNutrientDatabase
 
       private
 
-      def klass
-        UsdaNutrientDatabase::Weight
-      end
-
       def find_or_initialize(row)
         UsdaNutrientDatabase::Weight.find_or_initialize_by(
           nutrient_databank_number: row[0],
@@ -25,10 +21,6 @@ module UsdaNutrientDatabase
           :measurement_description, :gram_weight, :num_data_points,
           :standard_deviation
         ]
-      end
-
-      def import_with_postgres?
-        false
       end
 
       def log_import_started

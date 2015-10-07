@@ -4,10 +4,6 @@ module UsdaNutrientDatabase
 
       private
 
-      def klass
-        UsdaNutrientDatabase::FoodGroup
-      end
-
       def find_or_initialize(row)
         UsdaNutrientDatabase::FoodGroup.find_or_initialize_by(code: row[0])
       end

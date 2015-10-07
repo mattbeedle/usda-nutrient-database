@@ -9,7 +9,6 @@ class CreateUsdaFoodsNutrients < ActiveRecord::Migration
       t.string  :src_code, null: false
       t.string  :derivation_code
       t.string  :ref_nutrient_databank_number
-      t.string  :add_nutrient_mark_text
       t.boolean :add_nutrient_mark
       t.integer :num_studies
       t.float   :min

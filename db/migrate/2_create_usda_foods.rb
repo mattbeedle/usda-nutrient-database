@@ -7,7 +7,6 @@ class CreateUsdaFoods < ActiveRecord::Migration
       t.string  :short_description, null: false
       t.string  :common_names
       t.string  :manufacturer_name
-      t.string  :survey_text
       t.boolean :survey
       t.string  :refuse_description
       t.integer :percentage_refuse
