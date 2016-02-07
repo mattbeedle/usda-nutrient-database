@@ -9,8 +9,16 @@ module UsdaNutrientDatabase
 
       def import
         log_import_started
+        objects = []
         CSV.open(file_location, 'r:iso-8859-1:utf-8', csv_options) do |csv|
-          csv.each { |row| extract_row(row) }
+          csv.each do |row|
+            objects << extract_row(row)
+          end
+        end
+
+        if objects.compact.any?
+          klass = objects.first.class
+          klass.import(objects, validate: false)
         end
       end
 
@@ -19,7 +27,7 @@ module UsdaNutrientDatabase
       attr_reader :directory
 
       def extract_row(row)
-        build_object(apply_typecasts(row)).save
+        build_object(apply_typecasts(row))
       end
 
       def build_object(row)
