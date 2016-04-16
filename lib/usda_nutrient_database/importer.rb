@@ -2,7 +2,7 @@ module UsdaNutrientDatabase
   class Importer
     attr_reader :directory, :version
 
-    def initialize(directory = 'tmp/usda', version = 'sr25')
+    def initialize(directory = 'tmp/usda', version = UsdaNutrientDatabase.usda_version)
       @directory = directory
       @version = version
     end
