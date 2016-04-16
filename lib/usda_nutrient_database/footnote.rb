@@ -2,8 +2,12 @@ module UsdaNutrientDatabase
   class Footnote < ActiveRecord::Base
     self.table_name = 'usda_footnotes'
 
-    validates :nutrient_databank_number, presence: true,
-      uniqueness: { allow_blank: true }
+    validates :nutrient_databank_number,
+      presence: true,
+      uniqueness: {
+        allow_blank: true,
+        scope: [ :footnote_number, :nutrient_number ]
+      }
     validates :footnote_number, presence: true
     validates :footnote_type, presence: true
     validates :footnote_text, presence: true
