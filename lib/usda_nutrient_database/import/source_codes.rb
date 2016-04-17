@@ -13,11 +13,21 @@ module UsdaNutrientDatabase
       end
 
       def log_import_started
-        UsdaNutrientDatabase.log 'Source code import started'
+        UsdaNutrientDatabase.log 'Import source codes'
       end
 
       def filename
         'SRC_CD.txt'
+      end
+
+      def save_objects
+        UsdaNutrientDatabase::SourceCode.import(columns, objects_to_import, {
+          validate: false,
+          on_duplicate_key_update: {
+            conflict_target: :code,
+            columns: columns
+          }
+        })
       end
     end
   end

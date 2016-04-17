@@ -32,6 +32,16 @@ module UsdaNutrientDatabase
           :protein_factor, :fat_factor, :carbohydrate_factor
         ]
       end
+
+      def save_objects
+        UsdaNutrientDatabase::Food.import(columns, objects_to_import, {
+          validate: false,
+          on_duplicate_key_update: {
+            conflict_target: :nutrient_databank_number,
+            columns: columns
+          }
+        })
+      end
     end
   end
 end
