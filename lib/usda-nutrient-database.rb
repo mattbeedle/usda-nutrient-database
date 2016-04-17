@@ -32,8 +32,16 @@ module UsdaNutrientDatabase
       end
     end
 
+    def activerecord_import?
+      defined?(ActiveRecord::Import)
+    end
+
     def configuration
       @configuration ||= UsdaNutrientDatabase::Configuration.new
+    end
+
+    def batch_size
+      @batch_fize ||= configuration.batch_size
     end
 
     def usda_version

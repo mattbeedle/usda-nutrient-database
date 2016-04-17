@@ -25,6 +25,16 @@ module UsdaNutrientDatabase
       def log_import_started
         UsdaNutrientDatabase.log 'Importing footnotes'
       end
+
+      def save_objects
+        UsdaNutrientDatabase::Footnote.import(columns, objects_to_import, {
+          validate: false,
+          on_duplicate_key_update: {
+            conflict_target: %i(nutrient_databank_number nutrient_number footnote_number),
+            columns: columns
+          }
+        })
+      end
     end
   end
 end
