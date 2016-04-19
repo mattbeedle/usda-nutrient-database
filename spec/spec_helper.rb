@@ -16,6 +16,7 @@ require_relative 'support/database'
 
 UsdaNutrientDatabase.configure do |config|
   config.perform_logging = false
+  config.usda_version = 'sr25'
 end
 
 Shoulda::Matchers.configure do |config|
@@ -57,7 +58,7 @@ RSpec.configure do |config|
   begin
     ActiveRecord::Base.establish_connection(db_name.to_sym)
     ActiveRecord::Base.connection
-  rescue PG::ConnectionBad
+  rescue PG::ConnectionBad, ActiveRecord::NoDatabaseError
     ActiveRecord::Base.establish_connection db_config.merge('database' => nil)
     ActiveRecord::Base.connection.create_database db_config['database']
     ActiveRecord::Base.establish_connection db_config
@@ -75,6 +76,7 @@ RSpec.configure do |config|
   end
 
   config.before do
+    DatabaseCleaner.clean
     DatabaseCleaner.start
   end
 
