@@ -35,6 +35,10 @@ module UsdaNutrientDatabase
     def configuration
       @configuration ||= UsdaNutrientDatabase::Configuration.new
     end
+
+    def usda_version
+      @usda_version ||= configuration.usda_version
+    end
   end
 
   def self.configure

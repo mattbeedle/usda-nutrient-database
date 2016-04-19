@@ -19,7 +19,7 @@ module UsdaNutrientDatabase
       attr_reader :directory
 
       def extract_row(row)
-        build_object(apply_typecasts(row)).save
+        build_object(apply_typecasts(row)).save!
       end
 
       def build_object(row)
