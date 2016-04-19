@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.1.0
+
+- Made it work with `activerecord-import` gem to speed up import times by 30x
+  [#16](https://github.com/mattbeedle/usda-nutrient-database/pull/16)
+
 ## 2.0.0
 
 - Removed IDs from tables which don't have them in USDA data. Instead opted to
