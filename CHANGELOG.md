@@ -1,5 +1,18 @@
 # Changelog
 
+## 2.0.0
+
+- Removed IDs from tables which don't have them in USDA data. Instead opted to
+  use compound keys the same way they do. The upgrade path is simple but if you
+  have any other tables linking directly to USDA tables you're going to need to
+  change them to point to the composite key in the associations.
+  [#15](https://github.com/mattbeedle/usda-nutrient-database/pull/15)
+
+## 1.4.0
+
+- Upgrade to version SR28 USDA dataset
+  [#14](https://github.com/mattbeedle/usda-nutrient-database/pull/14)
+
 ## 1.2.0
 
 - Upgrade to version SR27 USDA dataset.
