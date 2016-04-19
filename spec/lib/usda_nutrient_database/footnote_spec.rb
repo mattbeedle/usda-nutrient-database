@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsdaNutrientDatabase::Footnote do
+describe UsdaNutrientDatabase::Footnote, type: :model do
   it 'validates uniqueness of nutrient_databank_number' do
     expect(subject)
       .to validate_uniqueness_of(:nutrient_databank_number)

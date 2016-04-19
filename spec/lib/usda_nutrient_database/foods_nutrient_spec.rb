@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsdaNutrientDatabase::FoodsNutrient do
+describe UsdaNutrientDatabase::FoodsNutrient, type: :model do
   it { should validate_presence_of(:nutrient_databank_number) }
   it { should validate_presence_of(:nutrient_number) }
   it { should validate_presence_of(:nutrient_value) }

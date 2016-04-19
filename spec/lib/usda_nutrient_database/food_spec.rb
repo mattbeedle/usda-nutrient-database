@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe UsdaNutrientDatabase::Food do
+describe UsdaNutrientDatabase::Food, type: :model do
   it { should validate_presence_of(:nutrient_databank_number) }
   it { should validate_presence_of(:food_group_code) }
   it { should validate_presence_of(:long_description) }
