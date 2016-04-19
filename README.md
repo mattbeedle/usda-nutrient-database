@@ -47,7 +47,42 @@ If you're using rails then copy the migrations across:
 rake usda_nutrient_database_engine:install:migrations
 ```
 
+## Configuration
+
+```ruby
+UsdaNutrientDatabase.configure do |config|
+  config.batch_size = 20000 # import batch size, if using activerecord-import
+  config.perform_logging = true # default false
+  config.logger = Rails.logger # default Logger.new(STDOUT)
+  config.usda_version = 'sr25' # default sr28
+end
+```
+
 ## Usage
+
+### Importing with UPSERT (takes around 2 minutes)
+
+If you are running MySQL => 5.6 or PostgreSQL => 9.5 then you're in luck, you
+can use UPSERT (insert or update) to speed up imports x30. To do this you're
+going to need to install
+[activerecord-import](https://github.com/zdennis/activerecord-import)
+
+```ruby
+require 'activerecord-import/base'
+ActiveRecord::Import.require_adapter('postgresql')
+
+# You may want to disable logging during this process to avoid dumping huge SQL
+# strings in to your logs
+ActiveRecord::Base.logger = Logger.new('/dev/null')
+```
+
+Now run the rake task which will import everything in around 2 minutes.
+```
+rake usda:import
+```
+
+
+### Importing without UPSERT (takes 60+ minutes)
 
 Import the latest data with the import task:
 ```
@@ -59,6 +94,8 @@ tasks:
 ```
 rake -T usda
 ```
+
+### Models
 
 Use the models to query and profit:
 ```
