@@ -26,6 +26,16 @@ module UsdaNutrientDatabase
       def log_import_started
         UsdaNutrientDatabase.log 'Importing weights'
       end
+
+      def save_objects
+        UsdaNutrientDatabase::Weight.import(columns, objects_to_import, {
+          validate: false,
+          on_duplicate_key_update: {
+            conflict_target: %i(nutrient_databank_number sequence_number),
+            columns: columns
+          }
+        })
+      end
     end
   end
 end
