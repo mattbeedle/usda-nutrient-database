@@ -1,6 +1,7 @@
 module UsdaNutrientDatabase
   class Weight < ActiveRecord::Base
     self.table_name = 'usda_weights'
+    self.primary_keys = %i(nutrient_databank_number sequence_number)
 
     validates :nutrient_databank_number, presence: true,
       uniqueness: { scope: :sequence_number }

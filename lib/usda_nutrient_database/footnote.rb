@@ -1,6 +1,11 @@
 module UsdaNutrientDatabase
   class Footnote < ActiveRecord::Base
     self.table_name = 'usda_footnotes'
+    self.primary_keys = [
+      :nutrient_databank_number,
+      :footnote_number,
+      :nutrient_number
+    ]
 
     validates :nutrient_databank_number,
       presence: true,
