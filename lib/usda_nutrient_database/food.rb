@@ -29,5 +29,11 @@ module UsdaNutrientDatabase
     scope :by_food_group_code, ->(food_group_code) {
       where(food_group_code: food_group_code)
     }
+    scope :search, ->(text) {
+      where(
+        arel_table[:long_description].matches("%#{text.gsub(' ', '%')}%")
+        .or(arel_table[:long_description].matches("%#{text.split(' ').reverse.join('%')}%"))
+      )
+    }
   end
 end

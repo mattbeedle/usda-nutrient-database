@@ -1,6 +1,7 @@
 module UsdaNutrientDatabase
   class FoodsNutrient < ActiveRecord::Base
     self.table_name = 'usda_foods_nutrients'
+    self.primary_keys = %i(nutrient_databank_number nutrient_number)
 
     validates :nutrient_databank_number, presence: true,
       uniqueness: { scope: :nutrient_number, allow_blank: true }
