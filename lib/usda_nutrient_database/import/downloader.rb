@@ -55,7 +55,7 @@ module UsdaNutrientDatabase
       end
 
       def connection
-        @connection ||= Faraday.new(url: 'https://www.ars.usda.gov')
+        @connection ||= Faraday.new(url: 'http://www.ars.usda.gov')
       end
 
       def final_path
