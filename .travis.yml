@@ -8,5 +8,8 @@ before_install:
   - gem update --system
   - gem install bundler
   - gem install rake
+before_script:
+  - psql -c 'create database usda_nutrient_database_test;' -U postgres
 script:
   - DB=sqlite3 bundle exec rspec spec/
+  - DB=postgresql bundle exec rspec spec/
