@@ -49,11 +49,6 @@ class AddReferentialIntegrity < ActiveRecord::Migration
       column: :nutrient_databank_number,
       primary_key: :nutrient_databank_number
 
-    add_foreign_key :usda_foods,
-      :usda_food_groups,
-      column: :food_group_code,
-      primary_key: :code
-
     add_foreign_key :usda_foods_nutrients,
       :usda_foods,
       column: :nutrient_databank_number,
