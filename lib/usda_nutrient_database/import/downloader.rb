@@ -22,9 +22,8 @@ module UsdaNutrientDatabase
 
       def path
         [
-          'SP2UserFiles',
-          'Place',
-          '12354500',
+          'ARSUserFiles',
+          '80400525',
           'Data',
           version == 'sr28' ? 'SR' : nil,
           version.upcase,
@@ -60,7 +59,7 @@ module UsdaNutrientDatabase
 
       def final_path
         look_ahead = connection.head(path)
-        if look_ahead.status == 302
+        if [302, 404].include?(look_ahead.status)
           raise 'No location' unless look_ahead.headers['location']
           URI.parse(look_ahead.headers['location']).path
         else
