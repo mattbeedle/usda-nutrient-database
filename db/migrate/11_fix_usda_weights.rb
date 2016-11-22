@@ -9,7 +9,8 @@ class FixUsdaWeights < ActiveRecord::Migration
         :nutrient_databank_number,
         :sequence_number
       ], {
-        unique: true
+        unique: true,
+        name: 'index_usda_weights_on_nutrient_databank_number_and_seq_number'
       }
     end
   end
